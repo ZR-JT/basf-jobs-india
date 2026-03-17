@@ -23,7 +23,6 @@ async def scrape_events():
                 await page.goto(url, timeout=60000, wait_until="domcontentloaded")
                 await page.wait_for_timeout(4000)
 
-                # "Load more" / "Show more" Button klicken
                 for i in range(10):
                     clicked = await page.evaluate("""
                         () => {
@@ -47,7 +46,6 @@ async def scrape_events():
                         print(f"  ✅ Kein Button mehr — {i} Klicks gesamt")
                         break
 
-                # Events extrahieren
                 event_items = await page.query_selector_all(
                     ".event-item, .events-list__item, article.event, "
                     "[class*='event'], li[class*='event']"
@@ -91,12 +89,12 @@ async def scrape_events():
 
                         if title and len(title) > 3 and title not in ["Load more", "Show more", "More"]:
                             event = {
-                                "title":        title,
-                                "date_text":    date_text,
-                                "date_iso":     date_iso,
-                                "location":     location,
-                                "category":     category,
-                                "url":          detail_url,
+                                "title":     title,
+                                "date_text": date_text,
+                                "date_iso":  date_iso,
+                                "location":  location,
+                                "category":  category,
+                                "url":       detail_url,
                             }
                             if not any(e["title"] == title and e["date_iso"] == date_iso for e in all_events):
                                 all_events.append(event)
@@ -113,51 +111,78 @@ async def scrape_events():
         await browser.close()
 
     print(f"\n✅ {len(all_events)} Events gefunden")
-
     all_events.sort(key=lambda e: e.get("date_iso") or e.get("date_text") or "")
 
     timestamp = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    rows = ""
+    # Events als Semantic HTML
+    event_articles = ""
     for e in all_events:
         url_link = f'<a href="{e["url"]}">Details →</a>' if e.get("url") else ""
-        rows += f"""<div class="event">
-  <h2>{e['title']}</h2>
-  <p><strong>Date:</strong> {e['date_text']} {f"({e['date_iso']})" if e['date_iso'] and e['date_iso'] != e['date_text'] else ""}</p>
-  {"<p><strong>Location:</strong> " + e['location'] + "</p>" if e['location'] else ""}
-  <p><strong>Category:</strong> {e['category']}</p>
-  {"<p>" + url_link + "</p>" if url_link else ""}
-</div>
-"""
+        event_articles += f"""
+  <article id="event-{slugify_simple(e['title'])}">
+    <h2>{e['title']}</h2>
+    <dl>
+      <dt>Date</dt><dd>{e['date_text']} {f"({e['date_iso']})" if e['date_iso'] and e['date_iso'] != e['date_text'] else ""}</dd>
+      {"<dt>Location</dt><dd>" + e['location'] + "</dd>" if e['location'] else ""}
+      <dt>Category</dt><dd>{e['category']}</dd>
+      {"<dt>Link</dt><dd>" + url_link + "</dd>" if url_link else ""}
+    </dl>
+  </article>"""
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="BASF India – Events and Career Fairs. {len(all_events)} upcoming events. Updated {timestamp}.">
 <title>BASF India – Events & Career Fairs</title>
 <style>
-  body   {{ font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; }}
-  h1     {{ color: #004a96; }}
-  .event {{ border-bottom: 1px solid #eee; padding: 16px 0; }}
-  .event h2 {{ color: #333; font-size: 1.1em; margin: 0 0 8px 0; }}
-  .event p  {{ margin: 3px 0; font-size: 0.9em; color: #555; }}
-  a      {{ color: #004a96; }}
-  .meta  {{ color: #777; font-size: 0.9em; margin-bottom: 24px; }}
+  body    {{ font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; }}
+  h1      {{ color: #004a96; }}
+  h2      {{ color: #333; font-size: 1.1em; margin: 0 0 8px 0; }}
+  article {{ border-bottom: 1px solid #eee; padding: 16px 0; }}
+  dl      {{ display: grid; grid-template-columns: 100px 1fr; gap: 4px 16px; font-size: 0.9em; }}
+  dt      {{ font-weight: bold; color: #555; }}
+  dd      {{ margin: 0; }}
+  a       {{ color: #004a96; }}
+  nav a   {{ color: #004a96; font-size: 0.9em; text-decoration: none; }}
+  .meta   {{ color: #777; font-size: 0.9em; margin-bottom: 24px; }}
 </style>
 </head>
 <body>
-<p><a href="index.html">← India Overview</a></p>
-<h1>🌏 BASF India – Events & Career Fairs</h1>
-<p class="meta">Updated: {timestamp} | {len(all_events)} events</p>
-{rows}
+
+<nav id="breadcrumb">
+  <a href="index.html">← India Overview</a>
+</nav>
+
+<main id="content">
+
+  <header>
+    <h1>🌏 BASF India – Events & Career Fairs</h1>
+    <p class="meta">Updated: {timestamp} | {len(all_events)} events</p>
+  </header>
+
+  <section id="event-list">
+    {event_articles}
+  </section>
+
+</main>
+
 </body>
 </html>"""
 
     with open("events.html", "w", encoding="utf-8") as f:
         f.write(html)
 
-    print(f"✅ events.html gespeichert!")
+    print("✅ events.html gespeichert!")
 
 
+def slugify_simple(text):
+    text = text.lower().strip()
+    text = re.sub(r'[^a-z0-9]+', '-', text)
+    return text.strip('-')
+
+
+import re
 asyncio.run(scrape_events())
