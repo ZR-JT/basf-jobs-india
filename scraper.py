@@ -144,7 +144,6 @@ async def fetch_jobs(session, api_key):
             }
             recruiter = {k: v for k, v in recruiter.items() if v}
 
-        # Vollständige Description ohne Zeichenlimit
         description = strip_html(job.get("description") or "")
 
         city  = addr.get("city")  or addr.get("locationCity") or "Unknown"
@@ -185,23 +184,101 @@ def cleanup_old_files(current_job_ids):
                 os.remove(filepath)
                 deleted_jobs += 1
 
-    deleted_regions = 0
     if os.path.exists("regions"):
         for filepath in glob.glob("regions/region-*.html"):
             os.remove(filepath)
-            deleted_regions += 1
 
     if deleted_jobs:
         print(f"  🗑  {deleted_jobs} veraltete Job-Seiten gelöscht")
-    if deleted_regions:
-        print(f"  🗑  {deleted_regions} alte Regionsseiten gelöscht")
 
 
-# ── EINZELNE JOB-SEITE (Semantic HTML) ───────────────────────────────────────
+# ── README.md GENERIEREN ─────────────────────────────────────────────────────
+def generate_readme(jobs, regions, sorted_regions, timestamp):
+    """
+    README.md mit allen Jobs befüllen — wird vom AI Agent direkt gelesen.
+    Struktur: Übersicht → Nach State gruppiert → Jeder Job mit allen Details
+    """
+
+    # ── Statistik-Block ──────────────────────────────────────────────────────
+    stats = f"""# BASF Jobs India
+
+> **Last updated: {timestamp}**
+> Total positions: **{len(jobs)}** | Locations: **{len(sorted_regions)}**
+
+---
+
+## Locations Overview
+
+| State | City | Positions |
+|---|---|---|
+"""
+    for (state, city) in sorted_regions:
+        count = len(regions[(state, city)])
+        stats += f"| {state} | {city} | {count} |\n"
+
+    stats += "\n---\n\n"
+
+    # ── Jobs nach State gruppiert ────────────────────────────────────────────
+    job_sections = ""
+    current_state = None
+
+    for (state, city) in sorted_regions:
+        if state != current_state:
+            job_sections += f"## {state}\n\n"
+            current_state = state
+
+        job_sections += f"### {city}\n\n"
+
+        for j in regions[(state, city)]:
+            recruiter_str = ""
+            if j.get("recruiter"):
+                r = j["recruiter"]
+                parts = []
+                if r.get("name"):  parts.append(r["name"])
+                if r.get("email"): parts.append(r["email"])
+                if r.get("phone"): parts.append(r["phone"])
+                recruiter_str = " | ".join(parts)
+
+            # Beschreibung auf 300 Zeichen kürzen für README
+            desc = j.get("description", "")
+            if len(desc) > 300:
+                desc = desc[:300] + "..."
+
+            job_sections += f"""#### {j.get('title', '')}
+
+| Field | Value |
+|---|---|
+| **Job ID** | {j.get('job_id', '')} |
+| **Company** | {j.get('company', '')} |
+| **Location** | {city}, {state} |
+| **Field** | {j.get('job_field', '')} |
+| **Department** | {j.get('department', '')} |
+| **Level** | {j.get('job_level', '')} |
+| **Type** | {j.get('job_type', '')} |
+| **Hybrid** | {'Yes' if j.get('hybrid') else 'No'} |
+| **Posted** | {j.get('date_posted', '')[:10]} |
+| **Link** | {j.get('url', '')} |
+{"| **Contact** | " + recruiter_str + " |" if recruiter_str else ""}
+
+**Description:** {desc}
+
+---
+
+"""
+
+    readme = stats + job_sections
+
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write(readme)
+
+    print(f"✅ README.md aktualisiert — {len(jobs)} Jobs eingetragen")
+
+
+# ── HTML SEITEN (behalten für GitHub Pages) ──────────────────────────────────
 def generate_job_page(j, timestamp):
     job_id      = j.get("job_id", "")
-    city        = j.get("city",   "")
-    state       = j.get("state",  "")
+    city        = j.get("city", "")
+    state       = j.get("state", "")
     region_slug = f"region-{slugify(state)}-{slugify(city)}"
     region_url  = f"{BASE_URL}/regions/{region_slug}.html"
     description = j.get("description", "").replace("\n", "<br>")
@@ -215,7 +292,7 @@ def generate_job_page(j, timestamp):
         if r.get("phone"): parts.append(f"<dt>Phone</dt><dd>{r['phone']}</dd>")
         recruiter_section = f"""
 <section id="recruiter">
-  <h2>Contact / Recruiter</h2>
+  <h2>Contact</h2>
   <dl>{''.join(parts)}</dl>
 </section>"""
 
@@ -223,41 +300,33 @@ def generate_job_page(j, timestamp):
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{j.get('title','')} – BASF India job in {city}, {state}">
 <title>{j.get('title', '')} – BASF Jobs India</title>
 <style>
-  body         {{ font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; color: #333; }}
-  h1           {{ color: #004a96; font-size: 1.6em; margin-bottom: 8px; }}
-  h2           {{ color: #004a96; margin-top: 28px; border-bottom: 1px solid #eee; padding-bottom: 6px; }}
-  nav          {{ font-size: 0.9em; margin-bottom: 24px; }}
-  nav a        {{ color: #004a96; text-decoration: none; }}
-  .meta        {{ display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 24px 0; }}
-  .badge       {{ background: #f0f5fa; border: 1px solid #cde; padding: 5px 12px; border-radius: 4px; font-size: 0.85em; color: #004a96; }}
+  body {{ font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; color: #333; }}
+  h1   {{ color: #004a96; }}
+  h2   {{ color: #004a96; border-bottom: 1px solid #eee; padding-bottom: 6px; }}
+  nav a {{ color: #004a96; font-size: 0.9em; text-decoration: none; }}
+  .meta {{ display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }}
+  .badge {{ background: #f0f5fa; border: 1px solid #cde; padding: 5px 12px; border-radius: 4px; font-size: 0.85em; color: #004a96; }}
+  dl   {{ display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; }}
+  dt   {{ font-weight: bold; color: #555; }}
+  dd   {{ margin: 0; }}
   .description {{ line-height: 1.9; margin-top: 12px; }}
-  dl           {{ display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; }}
-  dt           {{ font-weight: bold; color: #555; }}
-  dd           {{ margin: 0; }}
-  .apply-btn   {{ display: inline-block; margin-top: 28px; padding: 13px 30px; background: #004a96; color: #fff; text-decoration: none; border-radius: 4px; font-size: 1em; font-weight: bold; }}
+  .apply-btn {{ display: inline-block; margin-top: 28px; padding: 13px 30px; background: #004a96; color: #fff; text-decoration: none; border-radius: 4px; font-weight: bold; }}
   .apply-btn:hover {{ background: #003070; }}
-  hr           {{ border: none; border-top: 1px solid #eee; margin: 28px 0; }}
-  footer       {{ font-size: 0.8em; color: #aaa; margin-top: 40px; }}
+  hr   {{ border: none; border-top: 1px solid #eee; margin: 28px 0; }}
+  footer {{ font-size: 0.8em; color: #aaa; margin-top: 40px; }}
 </style>
 </head>
 <body>
-
 <nav id="breadcrumb">
-  <a href="{BASE_URL}/index.html">🌏 India Overview</a>
-  &nbsp;›&nbsp;
-  <a href="{region_url}">{city}, {state}</a>
-  &nbsp;›&nbsp;
+  <a href="{BASE_URL}/index.html">🌏 India Overview</a> ›
+  <a href="{region_url}">{city}, {state}</a> ›
   {j.get('title', '')}
 </nav>
-
 <main id="content">
-
   <article id="job-{job_id}">
-
     <header>
       <h1>{j.get('title', '')}</h1>
       <div class="meta">
@@ -271,29 +340,19 @@ def generate_job_page(j, timestamp):
         {"<span class='badge'>📅 " + j.get('date_posted','')[:10] + "</span>" if j.get('date_posted') else ""}
       </div>
     </header>
-
     <hr>
-
     <section id="description">
       <h2>Job Description</h2>
       <div class="description">{description}</div>
     </section>
-
     {recruiter_section}
-
     <section id="apply">
       <a class="apply-btn" href="{j.get('url', '')}" target="_blank">Apply on basf.jobs →</a>
     </section>
-
   </article>
-
 </main>
-
 <hr>
-<footer>
-  <p>Job ID: {job_id} | Last updated: {timestamp}</p>
-</footer>
-
+<footer><p>Job ID: {job_id} | Last updated: {timestamp}</p></footer>
 </body>
 </html>"""
 
@@ -302,7 +361,6 @@ def generate_job_page(j, timestamp):
         f.write(html)
 
 
-# ── REGIONSSEITE (Semantic HTML) ─────────────────────────────────────────────
 def generate_region_page(state, city, region_jobs, timestamp):
     slug = f"region-{slugify(state)}-{slugify(city)}"
 
@@ -314,11 +372,10 @@ def generate_region_page(state, city, region_jobs, timestamp):
     <article id="job-{job_id}" class="job-row">
       <h2><a href="{job_url}">{j.get('title', '')}</a></h2>
       <dl>
-        {"<dt>Field</dt><dd>"     + j.get('job_field','')  + "</dd>" if j.get('job_field')  else ""}
-        {"<dt>Level</dt><dd>"     + j.get('job_level','')  + "</dd>" if j.get('job_level')  else ""}
-        {"<dt>Type</dt><dd>"      + j.get('job_type','')   + "</dd>" if j.get('job_type')   else ""}
-        {"<dt>Hybrid</dt><dd>Yes</dd>"                               if j.get('hybrid')     else ""}
-        {"<dt>Posted</dt><dd>"    + j.get('date_posted','')[:10] + "</dd>" if j.get('date_posted') else ""}
+        {"<dt>Field</dt><dd>"  + j.get('job_field','')       + "</dd>" if j.get('job_field')  else ""}
+        {"<dt>Level</dt><dd>"  + j.get('job_level','')       + "</dd>" if j.get('job_level')  else ""}
+        {"<dt>Type</dt><dd>"   + j.get('job_type','')        + "</dd>" if j.get('job_type')   else ""}
+        {"<dt>Posted</dt><dd>" + j.get('date_posted','')[:10]+ "</dd>" if j.get('date_posted')else ""}
       </dl>
     </article>"""
 
@@ -326,42 +383,33 @@ def generate_region_page(state, city, region_jobs, timestamp):
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="BASF Jobs in {city}, {state} – {len(region_jobs)} open positions">
 <title>BASF Jobs – {city}, {state} | India</title>
 <style>
-  body      {{ font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }}
-  h1        {{ color: #004a96; }}
-  h2        {{ font-size: 1.05em; margin: 0 0 6px 0; }}
-  h2 a      {{ color: #004a96; text-decoration: none; }}
+  body  {{ font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }}
+  h1    {{ color: #004a96; }}
+  h2    {{ font-size: 1.05em; margin: 0 0 6px 0; }}
+  h2 a  {{ color: #004a96; text-decoration: none; }}
   h2 a:hover {{ text-decoration: underline; }}
-  nav a     {{ color: #004a96; font-size: 0.9em; text-decoration: none; }}
-  .job-row  {{ border-bottom: 1px solid #eee; padding: 14px 0; }}
-  dl        {{ display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 4px 0 0 0; font-size: 0.85em; color: #666; }}
-  dt        {{ font-weight: bold; }}
-  dd        {{ margin: 0; }}
-  .meta     {{ color: #777; font-size: 0.9em; margin-bottom: 20px; }}
+  nav a {{ color: #004a96; font-size: 0.9em; text-decoration: none; }}
+  .job-row {{ border-bottom: 1px solid #eee; padding: 14px 0; }}
+  dl    {{ display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 0.85em; color: #666; }}
+  dt    {{ font-weight: bold; }}
+  dd    {{ margin: 0; }}
+  .meta {{ color: #777; font-size: 0.9em; margin-bottom: 20px; }}
 </style>
 </head>
 <body>
-
 <nav id="breadcrumb">
   <a href="{BASE_URL}/index.html">← India Overview</a>
 </nav>
-
 <main id="content">
-
   <header>
     <h1>BASF Jobs – {city}, {state}</h1>
     <p class="meta">Updated: {timestamp} | {len(region_jobs)} position(s)</p>
   </header>
-
-  <section id="job-list">
-    {job_articles}
-  </section>
-
+  <section id="job-list">{job_articles}</section>
 </main>
-
 </body>
 </html>"""
 
@@ -372,9 +420,7 @@ def generate_region_page(state, city, region_jobs, timestamp):
     return slug
 
 
-# ── INDIA INDEX (Semantic HTML) ───────────────────────────────────────────────
 def generate_index(jobs, regions, sorted_regions, region_slugs, timestamp):
-
     state_sections = ""
     current_state  = None
     section_jobs   = ""
@@ -406,7 +452,6 @@ def generate_index(jobs, regions, sorted_regions, region_slugs, timestamp):
       <ul>{job_list}</ul>
     </li>"""
 
-    # Letzten State schließen
     if current_state is not None:
         state_sections += f"""
   <section id="state-{slugify(current_state)}">
@@ -418,37 +463,26 @@ def generate_index(jobs, regions, sorted_regions, region_slugs, timestamp):
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="BASF Jobs India – {len(jobs)} open positions across {len(sorted_regions)} locations. Updated {timestamp}.">
+<meta name="description" content="BASF Jobs India – {len(jobs)} open positions across {len(sorted_regions)} locations.">
 <title>BASF Jobs India – Overview</title>
 <style>
-  body    {{ font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }}
-  h1      {{ color: #004a96; }}
-  h2      {{ color: #333; border-bottom: 2px solid #004a96; padding-bottom: 4px; margin-top: 32px; }}
-  ul      {{ line-height: 1.9; }}
-  li      {{ margin-bottom: 4px; }}
-  a       {{ color: #004a96; text-decoration: none; }}
+  body  {{ font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; }}
+  h1    {{ color: #004a96; }}
+  h2    {{ color: #333; border-bottom: 2px solid #004a96; padding-bottom: 4px; margin-top: 32px; }}
+  ul    {{ line-height: 1.9; }}
+  a     {{ color: #004a96; text-decoration: none; }}
   a:hover {{ text-decoration: underline; }}
-  .meta   {{ color: #777; font-size: 0.9em; margin-bottom: 28px; }}
+  .meta {{ color: #777; font-size: 0.9em; margin-bottom: 28px; }}
 </style>
 </head>
 <body>
-
 <main id="content">
-
   <header>
     <h1>🌏 BASF Jobs – India</h1>
-    <p class="meta">
-      Updated: {timestamp} &nbsp;|&nbsp;
-      Total: <strong>{len(jobs)} positions</strong> &nbsp;|&nbsp;
-      {len(sorted_regions)} locations
-    </p>
+    <p class="meta">Updated: {timestamp} | Total: <strong>{len(jobs)} positions</strong> | {len(sorted_regions)} locations</p>
   </header>
-
   {state_sections}
-
 </main>
-
 </body>
 </html>"""
 
@@ -484,7 +518,6 @@ async def scrape_jobs():
         }, f, ensure_ascii=False, indent=2)
     print(f"✅ jobs.json gespeichert — {len(jobs)} Jobs")
 
-    # Nach State + City gruppieren
     regions = {}
     for j in jobs:
         key = (j.get("state", "Unknown"), j.get("city", "Unknown"))
@@ -493,19 +526,19 @@ async def scrape_jobs():
     sorted_regions = sorted(regions.keys(), key=lambda k: (k[0].lower(), k[1].lower()))
     region_slugs   = {}
 
-    # Job-Seiten generieren
     for j in jobs:
         generate_job_page(j, timestamp)
     print(f"✅ {len(jobs)} Job-Seiten generiert → jobs/")
 
-    # Regionsseiten generieren
     for (state, city) in sorted_regions:
         slug = generate_region_page(state, city, regions[(state, city)], timestamp)
         region_slugs[(state, city)] = slug
     print(f"✅ {len(sorted_regions)} Regionsseiten generiert → regions/")
 
-    # Index generieren
     generate_index(jobs, regions, sorted_regions, region_slugs, timestamp)
+
+    # README.md mit allen Jobs befüllen — wird vom AI Agent direkt gelesen
+    generate_readme(jobs, regions, sorted_regions, timestamp)
 
 
 asyncio.run(scrape_jobs())
