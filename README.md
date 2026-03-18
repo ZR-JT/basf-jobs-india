@@ -1,6 +1,6 @@
 # BASF Jobs India
 
-> **Last updated: 2026-03-18T05:24:19Z**
+> **Last updated: 2026-03-18T10:38:22Z**
 > Total positions: **36** | Locations: **11**
 
 ---
@@ -185,6 +185,26 @@
 
 ### Godrej One - Mumbai
 
+#### Specialist SCM Process Management - Materials Management and Warehouse Management
+
+| Field | Value |
+|---|---|
+| **Job ID** | 122575 |
+| **Company** | BASF India Limited |
+| **Location** | Godrej One - Mumbai, Maharashtra |
+| **Field** | Logistics & Supply Chain Management |
+| **Department** | G-PM/ASI |
+| **Level** | Professional |
+| **Type** | Permanent |
+| **Hybrid** | No |
+| **Posted** | 2026-03-18 |
+| **Link** | https://basf.jobs/job-invite/122575/?locale=en_US |
+| **Contact** | Sejal Sandeep Singh | sejal.sandeep-singh@partners.basf.com |
+
+**Description:** Objectives of the Position: We are looking for a Specialist SCM Process Management – Materials Management and Warehouse Management to support the global business. In this role, you will act as a process expert for SAP MM and WM, driving global process optimization, supporting operations, and ensurin...
+
+---
+
 #### Manager-Occupational, Transport & Environment Safety
 
 | Field | Value |
@@ -202,26 +222,6 @@
 | **Contact** | Caroline Pham | caroline.pham@basf.com |
 
 **Description:** About The Role Provide support to all stake holders of BASF in India for the effective implementation of Organization, Occupational Safety, Environment protection Transport Safety discipline initiatives to ensure safety of employees in work, prevention of incidents and continuous improvement in EHS ...
-
----
-
-#### Specialist SCM Process Management - Materials Management
-
-| Field | Value |
-|---|---|
-| **Job ID** | 122575 |
-| **Company** | BASF India Limited |
-| **Location** | Godrej One - Mumbai, Maharashtra |
-| **Field** | Logistics & Supply Chain Management |
-| **Department** | G-PM/ASI |
-| **Level** | Professional |
-| **Type** | Permanent |
-| **Hybrid** | No |
-| **Posted** | 2026-02-13 |
-| **Link** | https://basf.jobs/job-invite/122575/?locale=en_US |
-| **Contact** | Sejal Sandeep Singh | sejal.sandeep-singh@partners.basf.com |
-
-**Description:** About BASF in India BASF has successfully partnered India’s progress for more than 130 years. As of the end of 2024, BASF had 2,411 employees in India with 8 production sites and 42 offices throughout the country. The Innovation Campus Mumbai and the Coatings Technical Center in Mangalore are both p...
 
 ---
 
