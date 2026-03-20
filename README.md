@@ -1,7 +1,7 @@
 # BASF Jobs India
 
-> **Last updated: 2026-03-20T05:09:23Z**
-> Total positions: **35** | Locations: **11**
+> **Last updated: 2026-03-20T10:04:03Z**
+> Total positions: **34** | Locations: **11**
 
 ---
 
@@ -14,7 +14,7 @@
 | Gujarat | Dahej | 1 |
 | Gujarat | Panoli | 1 |
 | Karnataka | Mangalore | 3 |
-| Maharashtra | Godrej One - Mumbai | 10 |
+| Maharashtra | Godrej One - Mumbai | 9 |
 | Maharashtra | Navi Mumbai | 1 |
 | Maharashtra | Navi Mumbai - HO (Innovation Campus) | 11 |
 | Maharashtra | Navi Mumbai - HO (Turbhe) | 2 |
@@ -231,27 +231,6 @@
 | **Contact** | Caroline Pham | caroline.pham@basf.com |
 
 **Description:** About The Role Provide support to all stake holders of BASF in India for the effective implementation of Organization, Occupational Safety, Environment protection Transport Safety discipline initiatives to ensure safety of employees in work, prevention of incidents and continuous improvement in EHS ...
-
----
-
-#### Executive - Demand Planner , Customer Service
-
-| Field | Value |
-|---|---|
-| **Job ID** | 132855 |
-| **Company** | BASF India Limited |
-| **Location** | Godrej One - Mumbai, Maharashtra |
-| **Field** | Logistics & Supply Chain Management |
-| **Department** | EV/CSA |
-| **Level** | Professional |
-| **Type** | Permanent |
-| **Hybrid** | No |
-| **Posted** | 2026-02-11 |
-| **Apply URL (share with users)** | https://basf.jobs/job-invite/132855/?locale=en_US |
-| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-132855.html |
-| **Contact** | Caroline Pham | caroline.pham@basf.com |
-
-**Description:** About The Role To service the customers of the assigned Business Unit and order management Driving Demand Planning and Service Excellence Proactive Customer Orientation Communication Effectiveness Continuous Improvement How You Will Do It Strategic Key Activities Lead the complete supply planning an...
 
 ---
 
