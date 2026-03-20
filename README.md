@@ -1,6 +1,6 @@
 # BASF Jobs India
 
-> **Last updated: 2026-03-20T17:56:37Z**
+> **Last updated: 2026-03-20T21:03:32Z**
 > Total positions: **34** | Locations: **11**
 
 ---
