@@ -1,7 +1,7 @@
 # BASF Jobs India
 
-> **Last updated: 2026-03-24T05:17:08Z**
-> Total positions: **34** | Locations: **11**
+> **Last updated: 2026-03-24T10:37:56Z**
+> Total positions: **35** | Locations: **11**
 
 ---
 
@@ -14,7 +14,7 @@
 | Gujarat | Dahej | 1 |
 | Gujarat | Panoli | 1 |
 | Karnataka | Mangalore | 3 |
-| Maharashtra | Godrej One - Mumbai | 9 |
+| Maharashtra | Godrej One - Mumbai | 10 |
 | Maharashtra | Navi Mumbai | 1 |
 | Maharashtra | Navi Mumbai - HO (Innovation Campus) | 11 |
 | Maharashtra | Navi Mumbai - HO (Turbhe) | 2 |
@@ -191,6 +191,27 @@
 ## Maharashtra
 
 ### Godrej One - Mumbai
+
+#### Supply Chain Planning and Digital Excellence
+
+| Field | Value |
+|---|---|
+| **Job ID** | 134856 |
+| **Company** | BASF India Limited |
+| **Location** | Godrej One - Mumbai, Maharashtra |
+| **Field** | Logistics & Supply Chain Management |
+| **Department** | G-EDJ/LL3 |
+| **Level** | Graduate |
+| **Type** | Permanent |
+| **Hybrid** | No |
+| **Posted** | 2026-03-24 |
+| **Apply URL (share with users)** | https://basf.jobs/job-invite/134856/?locale=en_US |
+| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-134856.html |
+| **Contact** | Deepashri Nair | deepashri.nair@basf.com | +910226791-7499 |
+
+**Description:** Why does this position exist? With what permanent objectives? This position of Supply Chain Planner is newly created in India to manage the tolling operation of finished goods and key intermediates and operate the global supply out of India warehouse. Adding to the tolling operation management, this...
+
+---
 
 #### Specialist SCM Process Management - Materials Management and Warehouse Management
 
