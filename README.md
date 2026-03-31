@@ -1,7 +1,7 @@
 # BASF Jobs India
 
-> **Last updated: 2026-03-31T15:54:37Z**
-> Total positions: **39** | Locations: **11**
+> **Last updated: 2026-03-31T19:38:11Z**
+> Total positions: **35** | Locations: **10**
 
 ---
 
@@ -14,9 +14,8 @@
 | Gujarat | Dahej | 1 |
 | Gujarat | Panoli | 1 |
 | Karnataka | Mangalore | 3 |
-| Maharashtra | Godrej One - Mumbai | 14 |
-| Maharashtra | Navi Mumbai | 1 |
-| Maharashtra | Navi Mumbai - HO (Innovation Campus) | 11 |
+| Maharashtra | Godrej One - Mumbai | 13 |
+| Maharashtra | Navi Mumbai - HO (Innovation Campus) | 9 |
 | Maharashtra | Navi Mumbai - HO (Turbhe) | 2 |
 | Maharashtra | Thane | 3 |
 | Tamil Nadu | Coimbatore | 1 |
@@ -276,27 +275,6 @@
 
 ---
 
-#### Supply Chain Planning and Digital Excellence
-
-| Field | Value |
-|---|---|
-| **Job ID** | 134856 |
-| **Company** | BASF India Limited |
-| **Location** | Godrej One - Mumbai, Maharashtra |
-| **Field** | Logistics & Supply Chain Management |
-| **Department** | G-EDJ/LL3 |
-| **Level** | Graduate |
-| **Type** | Permanent |
-| **Hybrid** | No |
-| **Posted** | 2026-03-24 |
-| **Apply URL (share with users)** | https://basf.jobs/job-invite/134856/?locale=en_US |
-| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-134856.html |
-| **Contact** | Deepashri Nair | deepashri.nair@basf.com | +910226791-7499 |
-
-**Description:** Why does this position exist? With what permanent objectives? This position of Supply Chain Planner is newly created in India to manage the tolling operation of finished goods and key intermediates and operate the global supply out of India warehouse. Adding to the tolling operation management, this...
-
----
-
 #### Specialist SCM Process Management - Materials Management and Warehouse Management
 
 | Field | Value |
@@ -486,29 +464,6 @@
 
 ---
 
-### Navi Mumbai
-
-#### Team Leader Fungicide Research Chemistry
-
-| Field | Value |
-|---|---|
-| **Job ID** | 133937 |
-| **Company** | BASF Chemicals India Pvt. Ltd. |
-| **Location** | Navi Mumbai, Maharashtra |
-| **Field** | Research & Development |
-| **Department** | APR/FN |
-| **Level** | Other |
-| **Type** | Permanent |
-| **Hybrid** | No |
-| **Posted** | 2026-02-26 |
-| **Apply URL (share with users)** | https://basf.jobs/job-invite/133937/?locale=en_US |
-| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-133937.html |
-| **Contact** | Anishka Naik | anishka.naik@basf.com |
-
-**Description:** About BASF in India: BASF has successfully partnered in India’s progress for more than 130 years. As of the end of 2024, BASF had 2,411 employees in India with 8 production sites and 42 offices throughout the country. The Innovation Campus Mumbai and the Coatings Technical Center in Mangalore are bo...
-
----
-
 ### Navi Mumbai - HO (Innovation Campus)
 
 #### Data Science Specialist - IP (on contract)
@@ -571,48 +526,6 @@
 | **Contact** | Caroline Pham | caroline.pham@basf.com |
 
 **Description:** About The Role Technical key account management and key interface of customers R D Translate the customer needs into technical projects briefing Drive Technical service projects delivery with business impact How You Will Do It 1. Technical Interface Application Development Serve as the gatekeeper fo...
-
----
-
-#### Assistant Research Scientist
-
-| Field | Value |
-|---|---|
-| **Job ID** | 133469 |
-| **Company** | BASF Chemicals India Pvt. Ltd. |
-| **Location** | Navi Mumbai - HO (Innovation Campus), Maharashtra |
-| **Field** | Research & Development |
-| **Department** | APR/FN |
-| **Level** | Graduate |
-| **Type** | Permanent |
-| **Hybrid** | No |
-| **Posted** | 2026-02-26 |
-| **Apply URL (share with users)** | https://basf.jobs/job-invite/133469/?locale=en_US |
-| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-133469.html |
-| **Contact** | Anishka Naik | anishka.naik@basf.com |
-
-**Description:** Objectives of the position : Laboratory executive who will synthesize research chemicals with complete adherence to all BASF rules and regulations. Representative Main tasks: Safety Environment (SE): Ensure compliance with safety norms as per BCIPL Lab Safety manual, Standard Operating Procedures (S...
-
----
-
-#### Team Leader Technology Lab Mumbai
-
-| Field | Value |
-|---|---|
-| **Job ID** | 133812 |
-| **Company** | BASF Chemicals India Pvt. Ltd. |
-| **Location** | Navi Mumbai - HO (Innovation Campus), Maharashtra |
-| **Field** | Research & Development |
-| **Department** | APT/TP |
-| **Level** | Other |
-| **Type** | Permanent |
-| **Hybrid** | No |
-| **Posted** | 2026-02-26 |
-| **Apply URL (share with users)** | https://basf.jobs/job-invite/133812/?locale=en_US |
-| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-133812.html |
-| **Contact** | Anishka Naik | anishka.naik@basf.com |
-
-**Description:** O bjectives of the Position Our unit, Global Active Ingredients Technology II optimizes technologies as well as processes and implements production strategies for active ingredient manufacturing in the Agricultural Solutions division worldwide. We focus on active ingredients which are tolled, the im...
 
 ---
 
