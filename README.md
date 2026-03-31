@@ -1,7 +1,7 @@
 # BASF Jobs India
 
-> **Last updated: 2026-03-31T05:58:03Z**
-> Total positions: **37** | Locations: **11**
+> **Last updated: 2026-03-31T11:14:17Z**
+> Total positions: **39** | Locations: **11**
 
 ---
 
@@ -14,7 +14,7 @@
 | Gujarat | Dahej | 1 |
 | Gujarat | Panoli | 1 |
 | Karnataka | Mangalore | 3 |
-| Maharashtra | Godrej One - Mumbai | 12 |
+| Maharashtra | Godrej One - Mumbai | 14 |
 | Maharashtra | Navi Mumbai | 1 |
 | Maharashtra | Navi Mumbai - HO (Innovation Campus) | 11 |
 | Maharashtra | Navi Mumbai - HO (Turbhe) | 2 |
@@ -191,6 +191,48 @@
 ## Maharashtra
 
 ### Godrej One - Mumbai
+
+#### Deputy Manager - Reporting & MIS
+
+| Field | Value |
+|---|---|
+| **Job ID** | 135052 |
+| **Company** | BASF India Limited |
+| **Location** | Godrej One - Mumbai, Maharashtra |
+| **Field** | Finance, Controlling & Audit |
+| **Department** | GBA |
+| **Level** | Professional |
+| **Type** | Permanent |
+| **Hybrid** | No |
+| **Posted** | 2026-03-31 |
+| **Apply URL (share with users)** | https://basf.jobs/job-invite/135052/?locale=en_US |
+| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-135052.html |
+| **Contact** | Barkha Dawra | barkha.dawra@partners.basf.com |
+
+**Description:** About The Role Ensure that statutory reporting is completed in compliance manner and on timely basis. Ensure that group reporting is completed in compliant manner and on timely basis. Ensure completion of limited review and audits with quality and controls on a timely basis. Perform basic analysis o...
+
+---
+
+#### Head - Direct and Indirect Tax
+
+| Field | Value |
+|---|---|
+| **Job ID** | 134791 |
+| **Company** | BASF India Limited |
+| **Location** | Godrej One - Mumbai, Maharashtra |
+| **Field** | Finance, Controlling & Audit |
+| **Department** | GB Global Business Services |
+| **Level** | Professional |
+| **Type** | Permanent |
+| **Hybrid** | No |
+| **Posted** | 2026-03-31 |
+| **Apply URL (share with users)** | https://basf.jobs/job-invite/134791/?locale=en_US |
+| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-134791.html |
+| **Contact** | Barkha Dawra | barkha.dawra@partners.basf.com |
+
+**Description:** About The Role Ensure 100% regulatory compliance of GST, Income tax Transfer Pricing Manage tax litigations and tax risks in business operations. Strive for tax optimization and tax saving opportunities. How You Will Do It Advise the management on tax impact, transaction methodology for key projects...
+
+---
 
 #### Chief Financial Officer - BASF Agricultural Solutions India Pvt. Ltd.
 
