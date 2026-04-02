@@ -1,7 +1,7 @@
 # BASF Jobs India
 
-> **Last updated: 2026-04-02T18:11:29Z**
-> Total positions: **35** | Locations: **10**
+> **Last updated: 2026-04-02T21:55:25Z**
+> Total positions: **34** | Locations: **10**
 
 ---
 
@@ -14,7 +14,7 @@
 | Gujarat | Dahej | 1 |
 | Gujarat | Panoli | 1 |
 | Karnataka | Mangalore | 3 |
-| Maharashtra | Godrej One - Mumbai | 13 |
+| Maharashtra | Godrej One - Mumbai | 12 |
 | Maharashtra | Navi Mumbai - HO (Innovation Campus) | 9 |
 | Maharashtra | Navi Mumbai - HO (Turbhe) | 2 |
 | Maharashtra | Thane | 3 |
@@ -251,27 +251,6 @@
 | **Contact** | Shruti Mishra | shruti.a.mishra@partners.basf.com |
 
 **Description:** Objective of the Position: The Chief Financial Officer (CFO) will be a strategic partner to the Board and Management, responsible for financial stewardship, capital allocation, and sustainable value creation for the new legal entity BASF Agricultural Solutions India Ltd. Given the Company’s stock‑ex...
-
----
-
-#### Local Business Director, South Asia
-
-| Field | Value |
-|---|---|
-| **Job ID** | 134858 |
-| **Company** | BASF India Limited |
-| **Location** | Godrej One - Mumbai, Maharashtra |
-| **Field** | General Management |
-| **Department** | A-EDA |
-| **Level** | Professional |
-| **Type** | Permanent |
-| **Hybrid** | No |
-| **Posted** | 2026-03-26 |
-| **Apply URL (share with users)** | https://basf.jobs/job-invite/134858/?locale=en_US |
-| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-134858.html |
-| **Contact** | Deepashri Nair | deepashri.nair@basf.com | +910226791-7499 |
-
-**Description:** O bjectives of the Position To Lead and execute the Dispersions (ED - A-EDA) business in the sub-region. To implement the regional and local business strategies and achieve short- and long-term operational targets as agreed with A-EDA. To be fully accountable for financial performance of A-EDA in co...
 
 ---
 
