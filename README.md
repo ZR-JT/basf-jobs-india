@@ -1,6 +1,6 @@
 # BASF Jobs India
 
-> **Last updated: 2026-04-02T21:55:25Z**
+> **Last updated: 2026-04-03T05:52:21Z**
 > Total positions: **34** | Locations: **10**
 
 ---
@@ -529,7 +529,7 @@
 
 ---
 
-#### Lab Team leader 1
+#### Lab Team Leader
 
 | Field | Value |
 |---|---|
@@ -544,7 +544,7 @@
 | **Posted** | 2026-01-20 |
 | **Apply URL (share with users)** | https://basf.jobs/job-invite/131099/?locale=en_US |
 | **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-131099.html |
-| **Contact** | Caroline Pham | caroline.pham@basf.com |
+| **Contact** | Barkha Dawra | barkha.dawra@partners.basf.com |
 
 **Description:** Objective To lead a team of chemists and engineer for successful execution of research projects within specified timeline and budget while adhering to company EHS guidelines and policies. To create innovative projects and bring new know-how, technologies, products, and processes for the company. Mai...
 
