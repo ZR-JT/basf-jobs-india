@@ -1,6 +1,6 @@
 # BASF Jobs India
 
-> **Last updated: 2026-04-03T05:52:21Z**
+> **Last updated: 2026-04-03T10:09:45Z**
 > Total positions: **34** | Locations: **10**
 
 ---
@@ -523,7 +523,7 @@
 | **Posted** | 2026-01-21 |
 | **Apply URL (share with users)** | https://basf.jobs/job-invite/131297/?locale=en_US |
 | **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-131297.html |
-| **Contact** | Caroline Pham | caroline.pham@basf.com |
+| **Contact** | Barkha Dawra | barkha.dawra@partners.basf.com |
 
 **Description:** MAIN TASKS Synthesis and scale-up of small organic molecules / intermediates / active ingredients on milligram to multikilogram quantities Planning of synthesis including retrosynthesis and literature search Process development optimization of routes to advanced intermediates/finished products (chem...
 
