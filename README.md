@@ -1,7 +1,7 @@
 # BASF Jobs India
 
-> **Last updated: 2026-04-06T06:20:01Z**
-> Total positions: **34** | Locations: **10**
+> **Last updated: 2026-04-06T11:15:34Z**
+> Total positions: **36** | Locations: **10**
 
 ---
 
@@ -14,7 +14,7 @@
 | Gujarat | Dahej | 1 |
 | Gujarat | Panoli | 1 |
 | Karnataka | Mangalore | 3 |
-| Maharashtra | Godrej One - Mumbai | 12 |
+| Maharashtra | Godrej One - Mumbai | 14 |
 | Maharashtra | Navi Mumbai - HO (Innovation Campus) | 9 |
 | Maharashtra | Navi Mumbai - HO (Turbhe) | 2 |
 | Maharashtra | Thane | 3 |
@@ -191,6 +191,48 @@
 
 ### Godrej One - Mumbai
 
+#### Asst Manager - Customer Service
+
+| Field | Value |
+|---|---|
+| **Job ID** | 135172 |
+| **Company** | BASF India Limited |
+| **Location** | Godrej One - Mumbai, Maharashtra |
+| **Field** | Logistics & Supply Chain Management |
+| **Department** | A-CIA/LS |
+| **Level** | Professional |
+| **Type** | Permanent |
+| **Hybrid** | No |
+| **Posted** | 2026-04-06 |
+| **Apply URL (share with users)** | https://basf.jobs/job-invite/135172/?locale=en_US |
+| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-135172.html |
+| **Contact** | Barkha Dawra | barkha.dawra@partners.basf.com |
+
+**Description:** About The Role Manage OTC (Order to Cash) interfaces with internal external customers efficiently and effectively. How Will You Do It Perform Sales and Delivery Order Management tasks in SAP. Contribute to development of customer relationships through proactive customer communication related to orde...
+
+---
+
+#### Head of Human Resources India
+
+| Field | Value |
+|---|---|
+| **Job ID** | 126541 |
+| **Company** | BASF India Limited |
+| **Location** | Godrej One - Mumbai, Maharashtra |
+| **Field** | Human Resources |
+| **Department** | GBA/PHI |
+| **Level** | Professional |
+| **Type** | Permanent |
+| **Hybrid** | No |
+| **Posted** | 2026-04-06 |
+| **Apply URL (share with users)** | https://basf.jobs/job-invite/126541/?locale=en_US |
+| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-126541.html |
+| **Contact** | Barkha Dawra | barkha.dawra@partners.basf.com |
+
+**Description:** About BASF in India BASF has successfully partnered India’s progress for more than 130 years. As of the end of 2024, BASF had 2,411 employees in India with 8 production sites and 42 offices throughout the country. The Innovation Campus Mumbai and the Coatings Technical Center in Mangalore are both p...
+
+---
+
 #### Deputy Manager - Reporting & MIS
 
 | Field | Value |
@@ -290,7 +332,7 @@
 | **Posted** | 2026-03-05 |
 | **Apply URL (share with users)** | https://basf.jobs/job-invite/133873/?locale=en_US |
 | **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-133873.html |
-| **Contact** | Caroline Pham | caroline.pham@basf.com |
+| **Contact** | Barkha Dawra | barkha.dawra@partners.basf.com |
 
 **Description:** About The Role Provide support to all stake holders of BASF in India for the effective implementation of Organization, Occupational Safety, Environment protection Transport Safety discipline initiatives to ensure safety of employees in work, prevention of incidents and continuous improvement in EHS ...
 
