@@ -1,7 +1,7 @@
 # BASF Jobs India
 
-> **Last updated: 2026-04-08T06:10:26Z**
-> Total positions: **37** | Locations: **10**
+> **Last updated: 2026-04-08T11:33:45Z**
+> Total positions: **38** | Locations: **10**
 
 ---
 
@@ -14,7 +14,7 @@
 | Gujarat | Dahej | 1 |
 | Gujarat | Panoli | 1 |
 | Karnataka | Mangalore | 3 |
-| Maharashtra | Godrej One - Mumbai | 14 |
+| Maharashtra | Godrej One - Mumbai | 15 |
 | Maharashtra | Navi Mumbai - HO (Innovation Campus) | 10 |
 | Maharashtra | Navi Mumbai - HO (Turbhe) | 2 |
 | Maharashtra | Thane | 3 |
@@ -190,6 +190,27 @@
 ## Maharashtra
 
 ### Godrej One - Mumbai
+
+#### Business Controller - Performance Materials, India
+
+| Field | Value |
+|---|---|
+| **Job ID** | 135326 |
+| **Company** | BASF India Limited |
+| **Location** | Godrej One - Mumbai, Maharashtra |
+| **Field** | Finance, Controlling & Audit |
+| **Department** | A-PMA/C |
+| **Level** | Professional |
+| **Type** | Permanent |
+| **Hybrid** | No |
+| **Posted** | 2026-04-08 |
+| **Apply URL (share with users)** | https://basf.jobs/job-invite/135326/?locale=en_US |
+| **Detail URL (internal/AI only)** | https://ZR-JT.github.io/basf-jobs-IN/jobs/job-135326.html |
+| **Contact** | Sejal Sandeep Singh | sejal.sandeep-singh@partners.basf.com |
+
+**Description:** About The Role Lead PM Controlling team in India by steering, providing guidance and inspiring the team to be valued business partners for stakeholders in India. Be responsible for overall controlling, reporting, business analysis activities and ensuring compliance in India. Represent PM interest in...
+
+---
 
 #### Asst Manager - Customer Service
 
